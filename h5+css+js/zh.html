@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flappy bird</title>
+    <link rel="stylesheet" href="zh.css" media="screen" title="no title">
+    <script src="jquery.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="canvas">
+        <div class="game_start">
+            <div class="head">
+                <img src="../images/head.jpg" alt="">
+                <span class="small_bird"></span>
+            </div>
+            <div class="btns">
+                <span class="start_btn"></span>
+                <span class="submit_btn"></span>
+            </div>
+
+        </div>
+         <!--移动条-->
+        <div class="slider">
+            <img src="../images/slider.jpg" alt="">
+            <img src="../images/slider.jpg" alt="">
+            <!--alt 描述性文本，通俗就是说图片无法显示时，显示alt里面的文字。-->
+        </div>
+        <div class="pause">
+            <img src="../images/submit.jpg" alt="">
+        </div>
+        <!--鸟-->
+        <div id="flybird" class="bird">
+        </div>
+        <!--管道-->
+        <div class="conduit_group">
+        </div>
+
+
+        <div class="gameover">
+            <div class="overImg">
+                <img src="../images/game_over.jpg" alt="">
+            </div>
+            <div class="game_restart">
+                <img src="../images/ok.jpg" alt="">
+            </div>
+            <div class="overMessage">
+                <span class="thisScore"></span>
+                <span class="historyScore"></span>
+            </div>
+        </div>
+
+        <div id="scroing" class="scroing">
+            <!--<img src="../images/0.jpg" alt="">-->
+        </div>
+    </div>
+
+    <audio class="bgm" src="../source/game_music.mp3" autoplay="autoplay"loop="loop"></audio>
+    <audio class="gameover_bgm" src="../source/game_over.mp3" autoplay="autoplay"></audio>
+    <audio class="up_bgm" src="../source/bullet.mp3" autoplay="autoplay"></audio>
+</body>
+<script type="text/javascript" src="zh.js" charset="utf-8"></script>
+</html>

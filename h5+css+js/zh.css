@@ -1,0 +1,261 @@
+/*画布背景*/
+
+.canvas{
+    position: relative;
+    /*absolute 绝对的（left top right bottom)  相对于 static 定位以外的第一个父元素进行定位
+    fixed 绝对的（left top right bottom)  相对于 static 定位以外的浏览器窗口进行定位
+    relative 生成相对定位元素   "left:20" 会向元素的 LEFT 位置添加 20 像素
+    sticky 粘性定位 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
+    inherit  应该从父元素继承 position 属性的值
+    */
+    width:343px;
+    height: 480px;
+    margin:auto;
+    /*外边距 有四个数值 auto相当于水平居中*/
+    background: url(../images/bg.jpg) no-repeat;
+    overflow: hidden;
+    /*内容益处元素框时发生的事情*/
+    /*visible	默认值。内容不会被修剪，会呈现在元素框之外。*/
+    /*hidden	内容会被修剪，并且其余内容是不可见的。*/
+    /*scroll	内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。*/
+    /*auto	如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。*/
+    /*inherit	规定应该从父元素继承 overflow 属性的值。*/
+}
+
+.game_start{
+    display: block;
+    /*display 属性规定元素应该生成的框的类型 block以块状的方式显示*/
+}
+
+.head{
+    position: absolute;
+    top:100px;
+    left: 60px;
+    animation: birdmove 1.5s infinite;
+    /*创建动画效果 @keyframes*/
+}
+.head .small_bird{
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    position:absolute;
+    right:0;
+    top: 20px;
+    animation: birdbg 0.4s infinite;
+}
+
+ /*display：block将元素显示为块级元素，从而可以更好地操控元素的*/
+            /*宽高，以及内外边距，每一个块级元素都是从新的一行开始。*/
+
+    /*2、display : inline将元素显示为行内元素，高度，行高以及底边距不*/
+    /*可改变，高度就是内容文字或者图片的宽度，不可以改变。多个相邻的行*/
+    /*内元素排在同一行里，知道页面一行排列不下，才会换新的一行。*/
+
+    /*3、display：inline-block看上去值名inline-block是一个混合产物，实*/
+        /*际上确是如此，将元素显示为行内块状元素，设置该属性后，其他的*/
+        /*行内块级元素会排列在同一行。比如我们li元素一个inline-block，*/
+        /*使其既有block的宽度高度特性，又有inline的同行特性，在同一行内*/
+        /*有不同高度内容的元素时，通常要设置对齐方式*/
+        /*如vertical-align: top;来使元素顶部对齐。*/
+@keyframes birdmove {
+    0% {top:100px;}
+    50% {top:120px;}
+    100% {top:100px;}
+}
+@keyframes birdbg {
+    0%{background: url(../images/bird0.png) no-repeat;}
+    100%{background: url(../images/bird1.png) no-repeat;}
+}
+
+/*btns按钮*/
+.btns{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    position:absolute;
+    top:250px;
+}
+.btns .start_btn{
+    display: inline-block;
+    width: 85px;
+    height: 29px;
+    background: url(../images/start.jpg) no-repeat;
+    margin-left: 10px;
+}
+.btns .submit_btn{
+    display: inline-block;
+    width: 85px;
+    height: 29px;
+    background: url(../images/submit.jpg) no-repeat;
+}
+.slider{
+    width: 686px;
+    height:auto;
+    font-size: 0px;
+    position: absolute;
+    left:0px;
+    top:423px;
+    animation: slidermove 3s infinite linear;
+}
+.slider .img{
+    display: inline-block;
+}
+@keyframes slidermove {
+    0% {left: 0px;}
+    100% {left: -343px;}
+}
+
+.pause{
+    margin: auto;
+    display: block;
+    position: absolute;
+    top:0;
+    left:50px;
+    width: 85px;
+    height: 29px;
+}
+/*鸟*/
+#flybird{
+    display:none;
+    position:absolute;
+    width: 40px;
+    height:30px;
+    left: 50px;
+    top:20px;
+    background: url(../images/bird0.png) no-repeat;
+}
+@keyframes flybird_up {
+  0%{background:url(../images/up_bird0.png) no-repeat; }
+  100%{background:url(../images/up_bird1.png) no-repeat; }
+}
+@keyframes flybird_down {
+  0%{background:url(../images/down_bird0.png) no-repeat; }
+  100%{background:url(../images/down_bird1.png) no-repeat; }
+}
+
+.birddown{
+    transition: all 1s linear;
+    z-index: 100;
+}
+/*transition-duration是动画执行的时间，单位为s（秒），
+比如0.1秒可以写成“0.1s”或者“.1s”，它可以作用于任何元素，
+包括:before和:after伪元素。*/
+/*ease：逐渐慢下来；linear：匀速；ease-in：由慢到快；
+ease-out：由快到慢；ease-in-out：先慢到快再到慢。*/
+#flybird_up{
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    left:50px;
+    top:200px;
+    animation:flybird_up 0.3s infinite;
+}
+#flybird_down{
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    left:50px;
+    top:200px;
+    animation:flybird_down 0.3s infinite;
+}
+
+.conduit_group{
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+
+.conduitItem{
+    width:62px;
+    height: 423px;
+    position:absolute;
+    top:0;
+}
+
+.top_conduit{
+    width:100%;
+    position: absolute;
+    top:0px;
+    background: url(../images/up_mod.png);
+}
+.top_conduit div{
+    background: url(../images/up_pipe.png) bottom no-repeat;
+}
+.bottom_conduit{
+    width:100%;
+    position:absolute;
+    bottom: 0;
+    background: url(../images/down_mod.png);
+}
+.bottom_conduit div{
+    background: url(../images/down_pipe.png) 0 top no-repeat;
+}
+
+.gameover{
+    display: none;
+}
+.gameover .overImg{
+    position:absolute;
+    left:60px;
+    top:100px;
+    /*z-index:101;*/
+    /*animation: overimg 1s;*/
+}
+/*@keyframes overimg{*/
+    /*0%{top:-100px;}*/
+    /*100%{top:100px;}*/
+
+/*}*/
+
+.game_restart{
+    position: absolute;
+    left:130px;
+    top:300px;
+    /*z-index:101;*/
+    /*animation: res 1s;*/
+}
+/*@keyframes res {*/
+     /*0%{left:-100px}*/
+    /*100%{left:100px}*/
+/*}*/
+
+.overMessage{
+    width:269px;
+    height:135px;
+    background: url(../images/message.jpg) no-repeat;
+    position:absolute;
+    left:40px;
+    top:150px;
+    animation: overmessage 0.6s infinite linear;
+}
+
+@keyframes overmessage {
+    0%{top:500px}
+    0%{top:150px}
+
+}
+
+.thisScore{
+    position:absolute;
+    right:30px;
+    top:25px;
+    font-size: 2em;
+    color:olivedrab;
+}
+.historyScore{
+    position:absolute;
+    right:30px;
+    top:85px;
+    font-size: 2em;
+    color:red;
+    font-weight: 100;
+}
+
+.scroing{
+    position: absolute;
+    top:40px;
+    text-align: center;
+    width:100%;
+}
